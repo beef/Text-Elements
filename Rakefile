@@ -5,9 +5,9 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "text_elements"
-    gem.summary = %Q{TODO}
+    gem.summary = %Q{For all those bits of text that don't need a full cms}
     gem.email = "steve@wearebeef.co.uk"
-    gem.homepage = "http://github.com/stengland/text_elements"
+    gem.homepage = "http://github.com/beef/text_elements"
     gem.authors = ["Steve England"]
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end

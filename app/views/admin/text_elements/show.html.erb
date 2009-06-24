@@ -1,0 +1,11 @@
+<h1>Editing Text Element <%= @text_element.var.titleize %></h1>
+
+<% form_for @text_element, :url => admin_text_element_path(@text_element) do |f| -%>
+
+  <p>
+    <%= f.label :value, "Content" %><br/>
+    <%= f.text_area :value, :class => 'editor' %>
+  </p>
+  
+  <p class="submission"><%= f.submit "Go Live", :disable_with => 'Publishing...' %>
+<% end -%>

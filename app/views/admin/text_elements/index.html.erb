@@ -1,0 +1,53 @@
+<h1>Listing Text Elements</h1>  
+
+<table>
+  <thead>
+    <tr>
+      <%= sortable_table_header :name => "Title",  :sort => "var" %>
+      <%= sortable_table_header :name => "Content",  :sort => "value" %>
+      <%= sortable_table_header :name => "Updated",  :sort => "updated_at" %>
+      <th colspan="3">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+
+<% for text_element in @text_elements %>
+    <tr>
+      <td class="title"><%=h text_element.var.titleize %></td>
+      <td><%= truncate(text_element.value_plain, 50, '&hellip;') %></td>
+      <td class="date"><%= text_element.updated_at.to_formatted_s(:short) %></td>
+      <td><%= link_to 'Edit', [:admin, text_element], :class => 'edit' %></td>
+    </tr>  
+<% end %> 
+  </tbody>
+  <tfoot>
+    <tr>
+      <%= sortable_table_header :name => "Title",  :sort => "var" %>
+      <%= sortable_table_header :name => "Content",  :sort => "value" %>
+      <%= sortable_table_header :name => "Updated",  :sort => "updated_at" %>
+      <th colspan="3">Actions</th>
+    </tr>
+  </tfoot>
+</table>
+
+
+<%= will_paginate @text_elements %>
+
+
+<% content_for :search do %>
+  <h2>Search</h2>
+  
+  <% form_for :search, :html => {:method => 'get'} do |f| -%>
+    <p>
+      <%= f.label :title %><br/>
+      <%= f.text_field :title %>
+    </p>
+    <p>
+      <%= f.label :text %><br/>
+      <%= f.text_field :text %>
+    </p>
+    <p>
+    <%= f.submit 'Search', :disable_with => 'Searching...' %>
+    </p>
+  <% end %>
+<% end %>
