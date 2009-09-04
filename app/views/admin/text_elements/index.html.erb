@@ -5,6 +5,7 @@
     <tr>
       <%= sortable_table_header :name => "Title",  :sort => "var" %>
       <%= sortable_table_header :name => "Content",  :sort => "value" %>
+	  <%= sortable_table_header :name => "Location",  :sort => "uri" %>	
       <%= sortable_table_header :name => "Updated",  :sort => "updated_at" %>
       <th colspan="3">Actions</th>
     </tr>
@@ -15,6 +16,7 @@
     <tr>
       <td class="title"><%=h text_element.var.titleize %></td>
       <td><%= truncate(text_element.value_plain, 50, '&hellip;') %></td>
+	  <td><%= link_to text_element.uri, text_element.uri %></td>
       <td class="date"><%= text_element.updated_at.to_formatted_s(:short) %></td>
       <td><%= link_to 'Edit', [:admin, text_element], :class => 'edit' %></td>
     </tr>  

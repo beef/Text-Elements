@@ -3,6 +3,7 @@ class CreateTextElements < ActiveRecord::Migration
     create_table :text_elements do |t|
       t.string :var, :null => false
       t.text :value
+      t.string :text_elements, :uri, :string
       
       t.timestamps
     end
