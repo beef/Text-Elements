@@ -12,7 +12,7 @@ class TextElement < ActiveRecord::Base
   rescue NoMethodError
     #retrieve a value
     te = object(method_name, uri)
-    "<div class=\"ugc\">#{te.value || dummy_text}</div>"
+    "<div class=\"ugc\">#{te.value || dummy_text(method_name)}</div>"
   end
   
   #retrieve the actual Setting record
