@@ -11,7 +11,7 @@ class TextElement < ActiveRecord::Base
   rescue NoMethodError
     #retrieve a value
     te = object(method_name)
-    "<div class=\"ugc\">#{te.value || dummy_text(method_name)}</div>"
+    "<div class=\"ugc\">#{te.value || dummy_text(te)}</div>"
   end
   
   #retrieve the actual Setting record
@@ -19,7 +19,7 @@ class TextElement < ActiveRecord::Base
     TextElement.find_or_create_by_var(var_name.to_s)
   end
   
-  def self.dummy_text(method_name)
-    "<p>You can edit this text in the CMS under text elements, it is called '#{method_name.titleize}' .</p>"
+  def self.dummy_text(te)
+    "<p>#{te.title} dummy text. You can edit this text <a href=\"/admin/text_elements/#{te.id}\">here</a></p>"
   end
 end
