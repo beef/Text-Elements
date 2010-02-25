@@ -20,6 +20,6 @@ class TextElement < ActiveRecord::Base
   end
   
   def self.dummy_text(te)
-    "<p>#{te.title} dummy text. You can edit this text <a href=\"/admin/text_elements/#{te.id}\">here</a></p>"
+    "<p>#{te.var.titleize} dummy text. You can edit this text <a href=\"/admin/text_elements/#{te.id}\">here</a></p>"
   end
 end
