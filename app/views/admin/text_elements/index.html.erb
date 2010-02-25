@@ -16,7 +16,7 @@
       <td class="title"><%=h text_element.var.titleize %></td>
       <td><%= truncate(text_element.value_plain, 50, '&hellip;') %></td>
       <td class="date"><%= text_element.updated_at.to_formatted_s(:short) %></td>
-      <td class="action"><%= link_to 'Edit', [:admin, text_element], :class => 'edit' %></td>
+      <td class="action"><%= link_to 'Edit', [:admin, text_element], :class => 'edit', :title => 'Edit this element' %></td>
     </tr>  
 <% end %> 
   </tbody>
