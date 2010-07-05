@@ -1,4 +1,4 @@
-<h1>Listing Text Elements</h1>  
+<h1>Listing Text Elements</h1>
 
 <table>
   <thead>
@@ -14,11 +14,11 @@
 <% for text_element in @text_elements %>
     <tr>
       <td class="title"><%=h text_element.var.titleize %></td>
-      <td><%= truncate(text_element.value(:plain), 50, '&hellip;') %></td>
+      <td><%= truncate( strip_tags( text_element.value ), 50, '&hellip;') %></td>
       <td class="date"><%= text_element.updated_at.to_formatted_s(:short) %></td>
       <td class="action"><%= link_to 'Edit', [:admin, text_element], :class => 'edit', :title => 'Edit this element' %></td>
-    </tr>  
-<% end %> 
+    </tr>
+<% end %>
   </tbody>
   <tfoot>
     <tr>
@@ -36,7 +36,7 @@
 
 <% content_for :search do %>
   <h2>Search</h2>
-  
+
   <% form_for :search, :html => {:method => 'get'} do |f| -%>
     <p>
       <%= f.label :title %><br/>
