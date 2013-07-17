@@ -1,0 +1,1 @@
+# No need to do anything here - this just fixed Rails 2.3 engine loading with bundler
